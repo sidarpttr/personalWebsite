@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     radialGradientContainer.style.background = radialGradientStyle;
   });
 });
+
 let skillsContainers = document.getElementsByClassName("skills");
 
 for (let i = 0; i < skillsContainers.length; i++) {
@@ -62,71 +63,65 @@ for (let i = 0; i < skillsContainers.length; i++) {
   skillsContainer.innerHTML = `<pre>${coloredText}</pre>`;
 }
 
-
 var pre_skill = document.getElementById("skill");
-var skill = document.getElementById("code")
+var skill = document.getElementById("code");
 
-pre_skill.addEventListener("mousedown", function(){
-  if(window.innerWidth > 600){
+pre_skill.addEventListener("mousedown", function () {
+  if (window.innerWidth > 600) {
     pre_skill.style.display = "none";
     skill.style.display = "block";
   }
 });
 
-pre_skill.addEventListener('mouseover', function(){
+pre_skill.addEventListener("mouseover", function () {
   pre_skill.style.opacity = 1;
-})
+});
 
 if (window.innerWidth > 600) {
   preSkill.style.opacity = 0.5;
 }
 
-skill.addEventListener("mouseup", function(){
+skill.addEventListener("mouseup", function () {
   pre_skill.style.display = "block";
   skill.style.display = "none";
-})
+});
 
-document.addEventListener('scroll', function () {
-  let bar = document.getElementById('mobile-b');
+document.addEventListener("scroll", function () {
+  let bar = document.getElementById("mobile-b");
   if (window.scrollY > 120) {
-      bar.style.transform = 'translateY(-200px)';
+    bar.style.transform = "translateY(-200px)";
   } else {
-      bar.style.transform = 'translateY(0)';
+    bar.style.transform = "translateY(0)";
   }
   if (window.scrollY > 300) {
-    var skillElement = document.getElementById('skill');
+    var skillElement = document.getElementById("skill");
     if (skillElement) {
-        skillElement.style.marginTop = '10%';
+      skillElement.style.marginTop = "10%";
     }
   }
   if (window.scrollY > 900) {
-    var skillElement = document.getElementById('product');
+    var skillElement = document.getElementById("product");
     if (skillElement) {
-        skillElement.style.marginTop = '0%';
+      skillElement.style.marginTop = "0%";
     }
   }
 });
 
-document.addEventListener('scroll', function () {
-  var bar = document.getElementById('mobile-b');
+document.addEventListener("scroll", function () {
+  var bar = document.getElementById("mobile-b");
   var scrollPosition = window.scrollY;
 
-  // Sayfanın altına inildikçe renk değişimi
   var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
   var percentage = (scrollPosition / maxScroll) * 100;
 
-  // Renk değişimi için varsayılan renkler
-  var startColor = '#93cdd9'; // Beyaz
-  var endColor = '#0f172a';   // Mavi
+  var startColor = "#93cdd9";
+  var endColor = "#0f172a";
 
-  // Renk geçişini hesapla
   var newColor = interpolateColor(startColor, endColor, percentage / 100);
 
-  // Mobil bar'ın arka plan rengini ayarla
   bar.style.backgroundColor = newColor;
 });
 
-// İki renk arasında geçiş yapmak için bir fonksiyon
 function interpolateColor(start, end, percentage) {
   var startColor = hexToRgb(start);
   var endColor = hexToRgb(end);
@@ -138,7 +133,6 @@ function interpolateColor(start, end, percentage) {
   return rgbToHex(r, g, b);
 }
 
-// Hex formatındaki renk kodunu RGB'ye çevirme
 function hexToRgb(hex) {
   var bigint = parseInt(hex.slice(1), 16);
   var r = (bigint >> 16) & 255;
@@ -147,7 +141,6 @@ function hexToRgb(hex) {
   return { r, g, b };
 }
 
-// RGB renk kodunu Hex formatına çevirme
 function rgbToHex(r, g, b) {
-  return '#' + (1 << 24 | r << 16 | g << 8 | b).toString(16).slice(1);
+  return "#" + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
 }
