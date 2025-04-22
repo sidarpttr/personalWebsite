@@ -12,6 +12,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const box = document.querySelector(".box");
+  const modal = document.getElementById("customModal");
+
+  box.addEventListener("click", function () {
+    modal.style.display = "flex";
+  });
+
+  // Modalın dışına tıklanırsa kapansın
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+
 let skillsContainers = document.getElementsByClassName("skills");
 
 for (let i = 0; i < skillsContainers.length; i++) {
