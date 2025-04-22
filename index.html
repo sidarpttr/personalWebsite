@@ -11,7 +11,14 @@
     <div class="mobile-bar" id="mobile-b"></div>
     <div class="container">
       <h1>Sidar Adıgüzel</h1>
-
+      <div id="myDiv">
+          <div id="myModal">
+              <div id="modalContent">
+                <p>Hangi siteye gitmek istersin?</p>
+                <button onclick="window.location.href='https://www.google.com'">Google</button>
+                <button onclick="window.location.href='https://www.bing.com'">Bing</button>
+              </div>
+          </div>
       <div class="box">
         <div class="hover-point"></div>
         <div class="hover-point"></div>
@@ -23,19 +30,11 @@
         <div class="hover-point"></div>
         <div class="box-contents">
           I am a Full Stack Developer with a strong passion for software engineering. With expertise in both frontend and backend development, I specialize in building dynamic and efficient web and mobile applications. Proficient in Flutter, I have developed various mobile applications, continuously improving my skills and staying up to date with the latest technologies in the industry. Actively working on diverse projects, I strive to create innovative solutions and enhance my capabilities in software development.
-          </br>
-          <a href="https://scratch.mit.edu/projects/930597856/", style="color: white;">
-            Scratch örnek oyun:  https://scratch.mit.edu/projects/930597856/ </a>
-          <a href="https://www.canva.com/design/DAGksjg6BZs/bzILj8zYsHiPrtYMD9vkTg/edit?utm_content=DAGksjg6BZs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" style="color:white;">
-            canva link https://www.canva.com/design/DAGksjg6BZs/bzILj8zYsHiPrtYMD9vkTg/edit?utm_content=DAGksjg6BZs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-          </a>
-          </br>
-          </br>
         </div>
       </div>
-
+      </a>
       <div class="sign">©Sidar Adıgüzel 2024</div>
-    </div>
+    </div> //burası
 
     <div class="intro">
 
@@ -125,5 +124,17 @@
 
     <div class="radial-gradient-container"></div>
     <script src="script.js"></script>
+      <script>
+    document.getElementById("myDiv").addEventListener("click", function() {
+      document.getElementById("myModal").style.display = "flex";
+    });
+
+    // Dışarı tıklanınca modal kapansın
+    document.getElementById("myModal").addEventListener("click", function(e) {
+      if (e.target === this) {
+        this.style.display = "none";
+      }
+    });
+  </script>
   </body>
 </html>
