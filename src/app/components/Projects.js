@@ -14,10 +14,8 @@ const Projects = () => {
                             {p.image === "null" ? (
                                 <iframe
                                     src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7156021026118606849?collapsed=1"
-                                    height="500px"y
+                                    height="500px"
                                     width="300px"
-                                    frameborder="0"
-                                    allowfullscreen=""
                                     title="911 Game"
                                     className=" mb-6"
                                 ></iframe>
