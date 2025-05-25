@@ -1,8 +1,30 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
 
 const Navbar = () => {
+    const [viewCount, setViewCount] = useState(null);
+
+    useEffect(() => {
+        const fetchViewCount = async () => {
+            try {
+                const res = await fetch(
+                    "https://6833083fc3f2222a8cb4b55f.mockapi.io/api/logs/count/1"
+                );
+                const data = await res.json();
+                setViewCount(data.count);
+            } catch (error) {
+                console.error("Ziyaretçi sayısı alınamadı:", error);
+            }
+        };
+
+        fetchViewCount();
+    }, []);
+
     return (
         <nav className="mb-20 flex items-center justify-between py-6">
             <div className="flex flex-shrink-0 items-center">
@@ -23,13 +45,10 @@ const Navbar = () => {
                 >
                     <FaGithub />
                 </a>
-                <a
-                    href="https://www.instagram.com/sidar.adguzel/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <FaInstagram />
-                </a>
+                <div className="flex items-center gap-2 text-lg text-neutral-300 font-semibold">
+                    <FaRegEye className="text-xl" />
+                    {viewCount}
+                </div>
             </div>
         </nav>
     );
