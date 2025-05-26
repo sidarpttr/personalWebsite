@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         }
     };
 
-    updateVisitorCount();
+    //updateVisitorCount();
 
     return (
         <html lang="en">
