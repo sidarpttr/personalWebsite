@@ -12,11 +12,37 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-    title: {
-        default: "Sidar Adıgüzel",
-        template:"%s - Front End Developer"
+    metadataBase: new URL("https://www.sidaradguzel.online"),
+    title: "Sidar Adıgüzel | Frontend Developer",
+    description:
+        "Sidar Adıgüzel'in kişisel web sitesi. React ve Next.js projeleri, blog yazıları ve daha fazlası.",
+    keywords: "Sidar Adıgüzel, React, Next.js, frontend, portfolyo",
+    authors: [
+        { name: "Sidar Adıgüzel", url: "https://www.sidaradguzel.online" },
+    ],
+    openGraph: {
+        title: "Sidar Adıgüzel | Frontend Developer",
+        description: "React ve Next.js ile geliştirilmiş portfolyo sitesi.",
+        url: "https://www.sidaradguzel.online",
+        siteName: "Sidar Portfolio",
+        images: [
+            {
+                url: "/og-image.png",
+                width: 800,
+                height: 600,
+            },
+        ],
+        locale: "tr_TR",
+        type: "website",
     },
-    description: "Sidar Adıgüzel Portfolio",
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+        },
+    },
 };
 
 export default function RootLayout({ children }) {
@@ -47,6 +73,7 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang="en">
+            <head />
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
