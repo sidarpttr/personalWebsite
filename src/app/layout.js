@@ -16,7 +16,7 @@ export const metadata = {
     title: "Sidar Adıgüzel | Frontend Developer",
     description:
         "Sidar Adıgüzel'in kişisel web sitesi. React ve Next.js projeleri, blog yazıları ve daha fazlası.",
-    keywords: "Sidar Adıgüzel, React, Next.js, frontend, portfolyo",
+    keywords: "Sidar Adıgüzel, React, Flutter, firebase, unity, Next.js, frontend, portfolyo",
     authors: [
         { name: "Sidar Adıgüzel", url: "https://www.sidaradguzel.online" },
     ],
