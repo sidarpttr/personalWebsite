@@ -12,7 +12,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-    title: "Sidar Adıgüzel",
+    title: {
+        default: "Sidar Adıgüzel",
+        template:"%s - Front End Developer"
+    },
     description: "Sidar Adıgüzel Portfolio",
 };
 
