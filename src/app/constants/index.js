@@ -18,7 +18,7 @@ export const EXPERIENCES = [
 export const PROJECTS = [
     {
         title: "Film Atlası — Mobile Movie Explorer App",
-        image: "/images/filmatlasi.png",
+        image: "/images/filmatlasi.webp",
         description:
             "Developed a movie app with auth, likes, and dynamic content via REST API. Used Firebase Auth & Firestore; designed UI with Figma",
         technologies: ["Flutter", "Firebase", "REST API", "Dart"],
@@ -27,7 +27,7 @@ export const PROJECTS = [
 
     {
         title: "BirLig — League Management App",
-        image: "/images/birlig.png",
+        image: "/images/birlig.webp",
         description:
             "Developed a full-stack mobile app that allows users to create football leagues with friends and track match- based points. Implemented match result input, dynamic leaderboard, and user-friendly team management.",
 
@@ -37,7 +37,7 @@ export const PROJECTS = [
 
     {
         title: "Printify to ePortal — Chrome Extension",
-        image: "/images/p2p.png",
+        image: "/images/p2p.webp",
         description:
             "Built a Chrome extension to automate invoice creation between Printify and ePortal platforms Implemented secure token-based authentication and SMS verification for signing invoices Enabled date-based filtering and batch invoice approval via a clean React UI",
         technologies: ["React", "Javascript", "Node.js", "RestAPI"],
@@ -46,7 +46,7 @@ export const PROJECTS = [
 
     {
         title: "turkish-suffix — pub.dev Dart Package",
-        image: "/images/pubdev.png",
+        image: "/images/pubdev.webp",
         description:
             "Developed and published a Dart package to apply Turkish suffix rules programmatically Includes both String extensions and Flutter widgets for suffix handling Available on pub.dev: turkish_suffix",
         technologies: ["Flutter", "Dart"],
@@ -55,7 +55,7 @@ export const PROJECTS = [
 
     {
         title: "NumBreaker — Flutter Game",
-        image: "/images/numbreaker.png",
+        image: "/images/numbreaker.webp",
         description:
             "Looking for a fun and challenging puzzle game? The Number Guessing Game is perfect for testing your logic and strategy skills! The goal of the game is to correctly guess a hidden 4-digit number. After each guess, you'll receive two clues",
         technologies: ["Flutter", "Dart"],

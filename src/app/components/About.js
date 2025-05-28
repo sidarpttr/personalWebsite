@@ -1,6 +1,6 @@
 import { ABOUT_ME } from "../constants";
 import { motion } from "motion/react";
-import aboutmePic from "../../../public/images/aboutme.png";
+import aboutmePic from "../../../public/images/aboutme.webp";
 import Image from "next/image";
 
 export const About = () => {

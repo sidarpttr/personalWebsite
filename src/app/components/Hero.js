@@ -1,6 +1,6 @@
 import { HERO_CONTENT, HERO_STRINGS } from "../constants";
 import { motion } from "motion/react";
-import profilePic from "../../../public/images/profile.png";
+import profilePic from "../../../public/images/profile.webp";
 import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
 import CustomButton from "./atoms/button";
@@ -77,8 +77,7 @@ export const Hero = () => {
                             <Image
                                 src={profilePic}
                                 alt="Sidar Adıgüzel"
-                                width={500}
-                                height={500}
+                                priority
                             />
                         </motion.div>
                     </div>
