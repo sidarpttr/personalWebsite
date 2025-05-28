@@ -14,13 +14,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
     metadataBase: new URL("https://www.sidaradguzel.online"),
     title: "Sidar Adıgüzel | Frontend Developer",
-    description:
-        "Sidar Adıgüzel'in kişisel web sitesi. React ve Next.js projeleri, blog yazıları ve daha fazlası.",
-    keywords:
-        "Sidar Adıgüzel, React, Flutter, firebase, unity, Next.js, frontend, portfolyo",
-    authors: [
-        { name: "Sidar Adıgüzel", url: "https://www.sidaradguzel.online" },
-    ],
+    description: "Sidar Adıgüzel'in kişisel web sitesi...",
     openGraph: {
         title: "Sidar Adıgüzel | Frontend Developer",
         description: "React ve Next.js ile geliştirilmiş portfolyo sitesi.",
@@ -50,34 +44,19 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-    const updateVisitorCount = async () => {
-        try {
-            // Mevcut sayıyı çek
-            const res = await fetch(
-                "https://6833083fc3f2222a8cb4b55f.mockapi.io/api/logs/count/1"
-            );
-            const data = await res.json();
-            const newCount = (data.count || 0) + 1;
-
-            // Sayacı güncelle
-            await fetch(
-                "https://6833083fc3f2222a8cb4b55f.mockapi.io/api/logs/count/1",
-                {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ count: newCount }),
-                }
-            );
-        } catch (error) {
-            console.error("Ziyaretçi sayısı güncellenemedi:", error);
-        }
-    };
-
-    //updateVisitorCount();
-
     return (
         <html lang="en">
-            <head />
+            <head>
+                {/* Google Fonts için performans iyileştirmesi */}
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link
+                    rel="preconnect"
+                    href="https://fonts.gstatic.com"
+                    crossOrigin="true"
+                />
+                <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+                <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+            </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
