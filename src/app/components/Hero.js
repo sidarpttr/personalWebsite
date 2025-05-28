@@ -1,5 +1,10 @@
-import { HERO_CONTENT } from "../constants";
+import { HERO_CONTENT, HERO_STRINGS } from "../constants";
 import { motion } from "motion/react";
+import profilePic from "../../../public/images/profile.png";
+import Image from "next/image";
+import { FaArrowRightLong } from "react-icons/fa6";
+import CustomButton from "./atoms/button";
+import TypewriterComponent from "typewriter-effect";
 
 const container = (delay) => ({
     hidden: { x: -100, opacity: 0 },
@@ -33,7 +38,17 @@ export const Hero = () => {
                             animate="visible"
                             className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent"
                         >
-                            Full Stack Developer
+                            <TypewriterComponent
+                                options={{
+                                    strings: HERO_STRINGS,
+                                    autoStart: true,
+                                    loop: true,
+                                    cursor: "_",
+                                    cursorClassName: "typewriter-cursor",
+                                    delay: 50,
+                                    deleteSpeed: 30,
+                                }}
+                            />
                         </motion.span>
                         <motion.p
                             variants={container(1)}
@@ -43,18 +58,29 @@ export const Hero = () => {
                         >
                             {HERO_CONTENT}
                         </motion.p>
+                        <motion.div
+                            variants={container(1.5)}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            <CustomButton href="/Sidar_Adiguzel_CV_2025.pdf" text="CV" />
+                        </motion.div>
                     </div>
                 </div>
                 <div className="w-full lg:w-1/2 lg:p-8">
                     <div className="flex justify-center">
-                        <motion.img
+                        <motion.div
                             initial={{ x: 100, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 1, delay: 1.2 }}
-                            src="https://i.hizliresim.com/jjg1ri9.png"
-                            alt="Sidar Adıgüzel"
-                            className="w-[500px]"
-                        />
+                        >
+                            <Image
+                                src={profilePic}
+                                alt="Sidar Adıgüzel"
+                                width={500}
+                                height={500}
+                            />
+                        </motion.div>
                     </div>
                 </div>
             </div>

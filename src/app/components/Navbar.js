@@ -40,6 +40,7 @@ const Navbar = () => {
                 <a
                     href="https://www.linkedin.com/in/sidar-ad%C4%B1g%C3%BCzel-820696296/"
                     target="_blank"
+                    aria-label="Sidar Adıgüzel'in LinkedIn profili"
                     rel="noopener noreferrer"
                 >
                     <FaLinkedin />
@@ -47,6 +48,7 @@ const Navbar = () => {
                 <a
                     href="https://github.com/sidarpttr"
                     target="_blank"
+                    aria-label="Sidar Adıgüzel'in GitHub profili"
                     rel="noopener noreferrer"
                 >
                     <FaGithub />

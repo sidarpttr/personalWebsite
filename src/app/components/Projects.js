@@ -1,5 +1,7 @@
 import { PROJECTS } from "../constants";
 import { motion } from "motion/react";
+import Image from "next/image";
+import CustomButton from "./atoms/button";
 
 const Projects = () => {
     return (
@@ -36,10 +38,12 @@ const Projects = () => {
                                     className=" mb-6"
                                 ></iframe>
                             ) : (
-                                <img
+                                <Image
                                     src={p.image}
                                     alt={p.title}
                                     className="w-[300px] rounded-[25px] mb-16"
+                                    width={300}
+                                    height={300}
                                 />
                             )}
                         </motion.div>
@@ -64,14 +68,12 @@ const Projects = () => {
                                 );
                             })}
                             <div className="w-full mt-20">
-                                <a
+                                <CustomButton
                                     href={p.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-block rounded-[10px] bg-neutral-900 px-4 py-2 text-purple-500 border border-purple-900 hover:bg-black hover:border-black"
-                                >
-                                    Visit Project
-                                </a>
+                                    text="Visit Project"
+                                />
                             </div>
                         </motion.div>
                     </div>

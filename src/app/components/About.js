@@ -1,5 +1,7 @@
 import { ABOUT_ME } from "../constants";
 import { motion } from "motion/react";
+import aboutmePic from "../../../public/images/aboutme.png";
+import Image from "next/image";
 
 export const About = () => {
     return (
@@ -16,8 +18,8 @@ export const About = () => {
                     className="w-full lg:w-1/2 lg:p-8"
                 >
                     <div className="flex items-center justify-center">
-                        <img
-                            src="https://i.hizliresim.com/jcu535j.png"
+                        <Image
+                            src={aboutmePic}
                             alt="Sidar About"
                             className="w-[500px] rounded-[30px]"
                         />

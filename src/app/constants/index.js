@@ -18,7 +18,7 @@ export const EXPERIENCES = [
 export const PROJECTS = [
     {
         title: "Film Atlası — Mobile Movie Explorer App",
-        image: "https://i.hizliresim.com/o1a2vz2.png?_gl=1*w9iwfv*_ga*MTU5MDc3NDc2OS4xNzQ4MDg4MzIw*_ga_M9ZRXYS2YN*czE3NDgxMjM0NDMkbzUkZzEkdDE3NDgxMjM4MDAkajIwJGwwJGgwJGQ2d25oVzI0TFZ1a1RnLTNSMlNOOENfeWRvWXc2VzQ1VTlR",
+        image: "/images/filmatlasi.png",
         description:
             "Developed a movie app with auth, likes, and dynamic content via REST API. Used Firebase Auth & Firestore; designed UI with Figma",
         technologies: ["Flutter", "Firebase", "REST API", "Dart"],
@@ -27,7 +27,7 @@ export const PROJECTS = [
 
     {
         title: "BirLig — League Management App",
-        image: "https://i.hizliresim.com/tubp168.png",
+        image: "/images/birlig.png",
         description:
             "Developed a full-stack mobile app that allows users to create football leagues with friends and track match- based points. Implemented match result input, dynamic leaderboard, and user-friendly team management.",
 
@@ -37,7 +37,7 @@ export const PROJECTS = [
 
     {
         title: "Printify to ePortal — Chrome Extension",
-        image: "https://i.hizliresim.com/b6xou3f.png?_gl=1*1vr6v8b*_ga*MTU5MDc3NDc2OS4xNzQ4MDg4MzIw*_ga_M9ZRXYS2YN*czE3NDgxMjM0NDMkbzUkZzEkdDE3NDgxMjM4NjQkajYwJGwwJGgwJGQ2d25oVzI0TFZ1a1RnLTNSMlNOOENfeWRvWXc2VzQ1VTlR",
+        image: "/images/p2p.png",
         description:
             "Built a Chrome extension to automate invoice creation between Printify and ePortal platforms Implemented secure token-based authentication and SMS verification for signing invoices Enabled date-based filtering and batch invoice approval via a clean React UI",
         technologies: ["React", "Javascript", "Node.js", "RestAPI"],
@@ -46,7 +46,7 @@ export const PROJECTS = [
 
     {
         title: "turkish-suffix — pub.dev Dart Package",
-        image: "https://img.stackshare.io/service/12729/pub.png",
+        image: "/images/pubdev.png",
         description:
             "Developed and published a Dart package to apply Turkish suffix rules programmatically Includes both String extensions and Flutter widgets for suffix handling Available on pub.dev: turkish_suffix",
         technologies: ["Flutter", "Dart"],
@@ -55,7 +55,7 @@ export const PROJECTS = [
 
     {
         title: "NumBreaker — Flutter Game",
-        image: "https://i.hizliresim.com/msu2tn5.png?_gl=1*1fz7cdj*_ga*MTU5MDc3NDc2OS4xNzQ4MDg4MzIw*_ga_M9ZRXYS2YN*czE3NDgxMjM0NDMkbzUkZzEkdDE3NDgxMjM3NjAkajYwJGwwJGgwJGQ2d25oVzI0TFZ1a1RnLTNSMlNOOENfeWRvWXc2VzQ1VTlR",
+        image: "/images/numbreaker.png",
         description:
             "Looking for a fun and challenging puzzle game? The Number Guessing Game is perfect for testing your logic and strategy skills! The goal of the game is to correctly guess a hidden 4-digit number. After each guess, you'll receive two clues",
         technologies: ["Flutter", "Dart"],
@@ -76,3 +76,10 @@ export const CONTACT = {
     phoneNo: "+90 545 423 49 32",
     email: "sidar4932@gmail.com",
 };
+
+export const HERO_STRINGS = [
+    "Full Stack Developer",
+    "Software Engineer",
+    "Turning Ideas into Reality",
+    "Let's Build Something Great",
+];
