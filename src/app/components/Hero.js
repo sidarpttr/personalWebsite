@@ -63,7 +63,10 @@ export const Hero = () => {
                             initial="hidden"
                             animate="visible"
                         >
-                            <CustomButton href="/Sidar_Adiguzel_CV_2025.pdf" text="CV" />
+                            <CustomButton
+                                href="/Sidar_Adiguzel_CV_2025.pdf"
+                                text="CV"
+                            />
                         </motion.div>
                     </div>
                 </div>
@@ -77,6 +80,7 @@ export const Hero = () => {
                             <Image
                                 src={profilePic}
                                 alt="Sidar Adıgüzel"
+                                className="hover:-translate-y-2 duration-500"
                                 priority
                             />
                         </motion.div>

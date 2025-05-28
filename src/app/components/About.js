@@ -21,7 +21,7 @@ export const About = () => {
                         <Image
                             src={aboutmePic}
                             alt="Sidar About"
-                            className="w-[500px] rounded-[30px]"
+                            className="w-[500px] rounded-[30px] hover:-translate-y-2 duration-500"
                         />
                     </div>
                 </motion.div>
