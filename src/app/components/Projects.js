@@ -2,6 +2,7 @@ import { PROJECTS } from "../constants";
 import { motion } from "motion/react";
 import Image from "next/image";
 import CustomButton from "./atoms/button";
+import LinkedInEmbedModal from "./atoms/LinkedIn";
 
 const Projects = () => {
     return (
@@ -27,16 +28,7 @@ const Projects = () => {
                             className="w-full lg:w-1/4"
                         >
                             {p.image === "null" ? (
-                                <iframe
-                                    src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7156021026118606849?collapsed=1"
-                                    height="500px"
-                                    width="300px"
-                                    title="911 Game"
-                                    frameBorder="0"
-                                    allow="autoplay; encrypted-media"
-                                    allowFullScreen
-                                    className=" mb-6"
-                                ></iframe>
+                                <LinkedInEmbedModal />
                             ) : (
                                 <Image
                                     src={p.image}
