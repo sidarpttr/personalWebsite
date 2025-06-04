@@ -22,7 +22,7 @@ export const PROJECTS = [
         description:
             "Developed a movie app with auth, likes, and dynamic content via REST API. Used Firebase Auth & Firestore; designed UI with Figma",
         technologies: ["Flutter", "Firebase", "REST API", "Dart"],
-        link: "https://github.com/film-atlasi/film-atlasi",
+        link: "https://www.linkedin.com/posts/sidar-ad%C4%B1g%C3%BCzel-820696296_filmatlasaft-mobiluygulama-yazaftlaftmprojesi-activity-7335704332358590464-k9FN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEel7hgBfy_8_UhlIHRn5ZBYP_vWpGDJBV0",
     },
 
     {
