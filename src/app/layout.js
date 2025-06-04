@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
     metadataBase: new URL("https://www.sidaradguzel.online"),
-    title: "Sidar Adıgüzel | Frontend Developer",
+    title: "Sidar Adıgüzel | Full Stack Developer",
     description: "Sidar Adıgüzel'in kişisel web sitesi...",
     openGraph: {
-        title: "Sidar Adıgüzel | Frontend Developer",
+        title: "Sidar Adıgüzel | Full Stack Developer",
         description: "React ve Next.js ile geliştirilmiş portfolyo sitesi.",
         url: "https://www.sidaradguzel.online",
         siteName: "Sidar Portfolio",

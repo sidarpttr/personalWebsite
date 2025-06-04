@@ -18,7 +18,7 @@ export const EXPERIENCES = [
 export const PROJECTS = [
     {
         title: "Film Atlası — Mobile Movie Explorer App",
-        image: "/images/filmatlasi.webp",
+        image: "film atlasi",
         description:
             "Developed a movie app with auth, likes, and dynamic content via REST API. Used Firebase Auth & Firestore; designed UI with Figma",
         technologies: ["Flutter", "Firebase", "REST API", "Dart"],

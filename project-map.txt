@@ -1,0 +1,50 @@
+📄 .gitignore
+📄 README.md
+📄 eslint.config.mjs
+📄 jsconfig.json
+📄 next-sitemap.config.js
+📄 next.config.mjs
+📄 package-lock.json
+📄 package.json
+📄 postcss.config.mjs
+┣━ 📄 Sidar_Adiguzel_CV_2025.pdf
+┣━ 📁 animations
+┃   ┗━ 📄 sidar.json
+┣━ 📄 favicon.ico
+┣━ 📄 google3afd736ecdf6b4ef.html
+┣━ 📁 images
+┃   ┣━ 📄 aboutme.webp
+┃   ┣━ 📄 birlig.webp
+┃   ┣━ 📄 filmatlasi.webp
+┃   ┣━ 📄 numbreaker.webp
+┃   ┣━ 📄 p2p.webp
+┃   ┣━ 📄 profile.webp
+┃   ┗━ 📄 pubdev.webp
+┣━ 📄 og-image.png
+┣━ 📄 robots.txt
+┣━ 📄 sitemap-0.xml
+┗━ 📄 sitemap.xml
+
+┗━ 📁 app
+    ┣━ 📄 Counter.js
+    ┣━ 📁 assets
+    ┃   ┗━ 📄 profilePhoto.jpg
+    ┣━ 📁 components
+    ┃   ┣━ 📄 About.js
+    ┃   ┣━ 📄 Contact.js
+    ┃   ┣━ 📄 Experience.js
+    ┃   ┣━ 📄 Hero.js
+    ┃   ┣━ 📄 Navbar.js
+    ┃   ┣━ 📄 Projects.js
+    ┃   ┣━ 📄 Technologies.js
+    ┃   ┗━ 📁 atoms
+    ┃       ┣━ 📄 Footer.js
+    ┃       ┣━ 📄 LinkedIn.js
+    ┃       ┗━ 📄 button.js
+    ┣━ 📁 constants
+    ┃   ┗━ 📄 index.js
+    ┣━ 📄 globals.css
+    ┣━ 📄 layout.js
+    ┗━ 📄 page.js
+
+📄 tailwind.config.mjs

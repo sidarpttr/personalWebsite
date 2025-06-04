@@ -29,6 +29,15 @@ const Projects = () => {
                         >
                             {p.image === "null" ? (
                                 <LinkedInEmbedModal />
+                            ) : p.image === "film atlasi" ? (
+                                <iframe
+                                    src="https://istanbulstunv-my.sharepoint.com/personal/sidar_adiguzel_istun_edu_tr/_layouts/15/embed.aspx?UniqueId=17a5fa90-2c60-426c-8341-6bb233e463ff&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+                                    width="300"
+                                    height="500px"
+                                    frameBorder="0"
+                                    scrolling="no"
+                                    allowfullscreen
+                                ></iframe>
                             ) : (
                                 <Image
                                     src={p.image}
