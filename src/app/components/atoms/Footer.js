@@ -1,5 +1,6 @@
 import Lottie from "lottie-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Footer = () => {
     return (
@@ -39,6 +40,14 @@ export const Footer = () => {
                         </li>
                     </ul>
                 </div>
+                <nav className="flex items-center gap-4">
+                    <Link
+                        href="/istanbul-evden-eve-nakliyat"
+                        className="hover:text-neutral-300"
+                    >
+                        Katılım Nakliyat
+                    </Link>
+                </nav>
                 <div className="m-8 flex items-center justify-center gap-4 text-2xl">
                     <a
                         href="https://www.linkedin.com/in/sidar-ad%C4%B1g%C3%BCzel-820696296/"
