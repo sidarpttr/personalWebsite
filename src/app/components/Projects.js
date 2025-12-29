@@ -6,7 +6,7 @@ import LinkedInEmbedModal from "./atoms/LinkedIn";
 
 const Projects = () => {
     return (
-        <div className="pb-10">
+        <div id="projects" className="pb-10">
             <motion.h2
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -100 }}

@@ -7,6 +7,7 @@ import { FaRegEye } from "react-icons/fa";
 import Lottie from "lottie-react";
 import animationData from "../../../public/animations/sidar.json";
 
+
 const Navbar = () => {
     const [viewCount, setViewCount] = useState(null);
 
@@ -27,16 +28,8 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="mb-20 flex items-center justify-between py-6">
-            <div className="flex flex-shrink-0 items-center">
-                <Lottie
-                    animationData={animationData}
-                    loop={true}
-                    alt="Sidar Adıgüzel"
-                    style={{ width: "100px", height: "100px" }}
-                />
-            </div>
-            <div className="m-8 flex items-center justify-center gap-4 text-2xl">
+        <div className="w-full flex items-center justify-between">
+            <div className="flex items-center justify-center gap-4 text-2xl">
                 <a
                     href="https://www.linkedin.com/in/sidar-ad%C4%B1g%C3%BCzel-820696296/"
                     target="_blank"
@@ -58,7 +51,7 @@ const Navbar = () => {
                     {viewCount}
                 </div>
             </div>
-        </nav>
+        </div>
     );
 };
 
