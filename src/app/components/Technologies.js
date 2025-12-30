@@ -62,6 +62,7 @@ const Technologies = () => {
                     hoverSpeed={0}
                     scaleOnHover
                     fadeOut
+                    fadeOutColor="#000000"
                     ariaLabel="Technologies I work with"
                 />
     );
