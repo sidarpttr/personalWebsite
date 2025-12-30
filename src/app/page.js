@@ -7,6 +7,7 @@ import Technologies from "./components/Technologies";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import { Footer } from "./components/atoms/Footer";
+import ContactForm from "./components/ContactForm";
 import GlassSurface from "@/component/GlassSurface";
 import Particles from "@/component/Particles";
 
@@ -36,7 +37,7 @@ export default function Home() {
                         height={56}
                         borderRadius={30}
                         borderWidth={0.07}
-                        brightness={10}
+                        brightness={0}
                         opacity={0.13}
                         blur={11}
                         displace={0.5}
@@ -116,8 +117,8 @@ export default function Home() {
                 </section>
 
                 {/* Projects Section - Full Screen */}
-                <section className="min-h-screen snap-start snap-always flex items-center justify-center pointer-events-none">
-                    <div className="container mx-auto px-8">
+                <section className="min-h-screen snap-start snap-always flex items-center justify-center">
+                    <div className="container mx-auto px-8 pointer-events-auto">
                         <Projects />
                     </div>
                 </section>
@@ -130,6 +131,9 @@ export default function Home() {
                 </section>
 
             </div>
+
+            {/* Fixed Contact Form */}
+            <ContactForm />
         </div>
     );
 }

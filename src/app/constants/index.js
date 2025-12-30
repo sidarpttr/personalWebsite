@@ -6,7 +6,28 @@ export const ABOUT_ME =
 
 export const EXPERIENCES = [
     {
-        year: "2025 - Present",
+        year: "2025 Oct - Present",
+        role: "Web Developer",
+        company: "Siirte Bakış",
+        description:"Created a local news website using React and Node.js for Siirt", 
+        technologies: ["next.js", "node.js", "react", "firebase","restapi"],
+    },
+    {
+        year: "2025 Sep - 2025 Oct",
+        role: "IEEEXTREME",
+        company: "Istanbul Technical University",
+        description:"IEEEXTREME competition participant and 5th place winner in Turkey ranking",
+        technologies: ["cpp", "c", "python"],
+    },
+    {
+        year: "2025 Aug - 2025 Sep",
+        role: "Web Developer",
+        company: "Token Yazılım",
+        description:"created a web application for payment processing",
+        technologies: ["Node.js", "Express.js", "React","SQL"],
+    },
+    {
+        year: "2025 April - 2025 June",
         role: "Programming and AI Instructor",
         company: "Bilim Güngören",
         description:
@@ -16,6 +37,22 @@ export const EXPERIENCES = [
 ];
 
 export const PROJECTS = [
+    {
+        title: "YurtPal",
+        image: "/images/yurtpal.png",
+        description:
+            "Developed a IOS/Android app for dormitory life.",
+        technologies: ["Flutter", "Firebase", "REST API", "express.js"],
+        link: "https://yurtpal.com",
+    },
+    {
+        title: "Siirte Bakış",
+        image: "/images/siirte-bakis.svg",
+        description:
+            "Developed a local news website using React and Node.js for Siirt.",
+        technologies: ["next.js", "node.js", "react", "firebase","restapi"],
+        link: "https://siirtebakis.com",
+    },
     {
         title: "Film Atlası — Mobile Movie Explorer App",
         image: "/images/filmatlasi2.webp",
