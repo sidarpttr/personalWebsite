@@ -1,10 +1,20 @@
+import { useRef } from "react";
 import { PROJECTS } from "../constants";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import CustomButton from "./atoms/button";
 import LinkedInEmbedModal from "./atoms/LinkedIn";
 
 const Projects = () => {
+    const headingRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: headingRef,
+        offset: ["start end", "center center"]
+    });
+
+    const textColor = useTransform(scrollYProgress, [0.4, 0.8], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]);
+    const strokeColor = useTransform(scrollYProgress, [0.4, 0.8], ["rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 0)"]);
+
     return (
         <section id="projects" className="py-24 px-6 lg:px-12">
             {/* Section Header */}
@@ -15,10 +25,18 @@ const Projects = () => {
                 transition={{ duration: 0.6 }}
                 className="max-w-6xl mx-auto mb-20"
             >
-                <h2 className="text-5xl lg:text-6xl font-semibold text-white mb-4 tracking-tight text-center">
+                <motion.h2 
+                    ref={headingRef}
+                    style={{ 
+                        fontFamily: 'var(--font-syne)',
+                        color: textColor,
+                        WebkitTextStroke: "1px white",
+                        WebkitTextStrokeColor: strokeColor
+                    }}
+                    className="my-12 md:my-20 text-center text-3xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-[-0.05em] uppercase"
+                >
                     Projects
-                </h2>
-                <div className="w-16 h-1 bg-gradient-to-r from-neutral-400 to-neutral-600 rounded-full mx-auto"></div>
+                </motion.h2>
             </motion.div>
 
             {/* Projects Grid */}
