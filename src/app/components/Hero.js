@@ -63,7 +63,7 @@ export const Hero = () => {
                 variants={fadeIn(0.2)}
                 initial="hidden"
                 animate="visible"
-                className="absolute top-[13%] sm:top-[9%] left-0 right-0 text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[8rem] 2xl:text-[10rem] font-syne font-extrabold tracking-[-0.05em] text-white leading-[0.85] uppercase text-center z-0 whitespace-nowrap px-4 opacity-10 sm:opacity-100"
+                className="absolute top-[13%] sm:top-[9%] left-0 right-0 text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[8rem] 2xl:text-[10rem] font-syne font-extrabold tracking-[-0.05em] leading-[0.85] uppercase text-center z-0 whitespace-nowrap px-4 opacity-10 sm:opacity-100 bg-clip-text text-transparent bg-gradient-to-b from-[#A5D7E8] via-[#E0F2F7] to-white"
                 style={{ fontFamily: 'var(--font-syne)' }}
             >
                 HI, I'M SIDAR
@@ -118,7 +118,9 @@ export const Hero = () => {
                     className="hidden lg:block order-3"
                 >
                     <motion.a
-                        href="#contact"
+                        href="/Sidar_Adiguzel_CV_2025.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="px-10 py-4 bg-white text-black font-bold rounded-full text-base tracking-wide hover:bg-neutral-100 transition-all shadow-xl pointer-events-auto inline-block"
@@ -135,7 +137,9 @@ export const Hero = () => {
                     className="lg:hidden order-3"
                 >
                     <motion.a
-                        href="#contact"
+                        href="/Sidar_Adiguzel_CV_2025.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="px-8 py-3 bg-white text-black font-bold rounded-full text-sm tracking-wide hover:bg-neutral-100 transition-all shadow-xl pointer-events-auto inline-block"

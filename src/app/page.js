@@ -1,16 +1,11 @@
 "use client";
 import { useRef } from "react";
-import Navbar from "./components/Navbar";
 import { Hero } from "./components/Hero";
-import { LogoMarquee } from "./components/LogoMarquee";
 import { About } from "./components/About";
-import Technologies from "./components/Technologies";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import { Footer } from "./components/atoms/Footer";
-import ContactForm from "./components/ContactForm";
 import GlassSurface from "@/component/GlassSurface";
-import Particles from "@/component/Particles";
 
 export default function Home() {
     const scrollContainerRef = useRef(null);
@@ -18,6 +13,8 @@ export default function Home() {
     return (
         <div ref={scrollContainerRef} className="overflow-x-hidden text-neutral-300 antialiased selection:bg-gray-300 selection:text-black h-screen overflow-y-scroll snap-y snap-mandatory">
             {/* Fixed Appbar */}
+            <div style={{ height: '600px', position: 'relative' }}>
+        </div>
             <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-8 pt-5 flex justify-center">
                 <div className="max-w-3xl w-full pointer-events-auto">
                     <GlassSurface
@@ -52,28 +49,22 @@ export default function Home() {
                             {/* Center: Navigation Links */}
                             <nav className="flex items-center gap-6">
                                 <a 
-                                    href="#about" 
-                                    className="text-white/70 hover:text-white transition-colors text-sm font-medium"
-                                >
-                                    Hakkımda
-                                </a>
-                                <a 
                                     href="#experience" 
                                     className="text-white/70 hover:text-white transition-colors text-sm font-medium"
                                 >
-                                    Tecrübe
+                                    Experience
                                 </a>
                                 <a 
                                     href="#projects" 
                                     className="text-white/70 hover:text-white transition-colors text-sm font-medium"
                                 >
-                                    Projeler
+                                    Projects
                                 </a>
                                 <a 
                                     href="#contact" 
                                     className="text-white/70 hover:text-white transition-colors text-sm font-medium"
                                 >
-                                    İletişim
+                                    Contact
                                 </a>
                             </nav>
                         </div>
@@ -99,7 +90,7 @@ export default function Home() {
 
                 {/* Experience Section - Full Screen */}
                 <section className="min-h-screen snap-start snap-always flex items-center justify-center pointer-events-none">
-                    <div className="container mx-auto px-8">
+                    <div className="container">
                         <Experience />
                     </div>
                 </section>
