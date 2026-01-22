@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Anton, Archivo_Black, Syne } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -9,6 +9,24 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
     variable: "--font-geist-mono",
     subsets: ["latin"],
+});
+
+const anton = Anton({
+    variable: "--font-anton",
+    subsets: ["latin"],
+    weight: "400",
+});
+
+const archivoBlack = Archivo_Black({
+    variable: "--font-archivo-black",
+    subsets: ["latin"],
+    weight: "400",
+});
+
+const syne = Syne({
+    variable: "--font-syne",
+    subsets: ["latin"],
+    weight: ["800"],
 });
 
 export const metadata = {
@@ -58,7 +76,7 @@ export default function RootLayout({ children }) {
                 <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
             </head>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${archivoBlack.variable} ${syne.variable} antialiased`}
             >
                 {children}
             </body>

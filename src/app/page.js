@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import Navbar from "./components/Navbar";
 import { Hero } from "./components/Hero";
+import { LogoMarquee } from "./components/LogoMarquee";
 import { About } from "./components/About";
 import Technologies from "./components/Technologies";
 import Experience from "./components/Experience";
@@ -16,19 +17,6 @@ export default function Home() {
     
     return (
         <div ref={scrollContainerRef} className="overflow-x-hidden text-neutral-300 antialiased selection:bg-gray-300 selection:text-black h-screen overflow-y-scroll snap-y snap-mandatory">
-            {/* Galaxy background - fixed overlay that captures mouse events */}
-            <div className="fixed inset-0 z-0 pointer-events-none">
-                <Particles
-                    particleColors={['#aaaaaa', '#333']}
-                    particleCount={200}
-                    particleSpread={10}
-                    speed={0.1}
-                    particleBaseSize={100}
-                    moveParticlesOnHover={true}
-                    alphaParticles={false}
-                    disableRotation={false}
-                />
-            </div>
             {/* Fixed Appbar */}
             <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-8 pt-5 flex justify-center">
                 <div className="max-w-3xl w-full pointer-events-auto">
@@ -97,14 +85,14 @@ export default function Home() {
             <div className="relative z-10 pointer-events-auto">
                 {/* Hero Section - Full Screen */}
                 <section className="h-screen snap-start snap-always flex items-center justify-center pointer-events-none">
-                    <div className="container mx-auto px-8">
+                    <div className="container">
                         <Hero />
                     </div>
                 </section>
 
                 {/* About Section - Full Screen */}
                 <section className="min-h-screen snap-start snap-always flex items-center justify-center">
-                    <div className="container mx-auto px-8">
+                    <div className="container mx-auto">
                         <About scrollContainerRef={scrollContainerRef} />
                     </div>
                 </section>
@@ -131,9 +119,6 @@ export default function Home() {
                 </section>
 
             </div>
-
-            {/* Fixed Contact Form */}
-            <ContactForm />
         </div>
     );
 }
