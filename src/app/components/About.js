@@ -46,7 +46,10 @@ export const About = ({ scrollContainerRef }) => {
         const unsubscribe = smoothProgress.on("change", (latest) => {
             if (lottieRef.current) {
                 const totalFrames = lottieRef.current.getDuration(true);
-                const frame = Math.floor(latest * totalFrames);
+                // Map 0 -> 0.9 scroll progress to 0 -> totalFrames
+                // This ensures the animation is fully finished before the sticky section ends
+                const animationProgress = Math.min(latest / 0.9, 1);
+                const frame = Math.floor(animationProgress * totalFrames);
                 lottieRef.current.goToAndStop(frame, true);
             }
         });
@@ -55,11 +58,12 @@ export const About = ({ scrollContainerRef }) => {
     }, [smoothProgress]);
 
     // Simple opacity animations for each heading (using smoothProgress)
-    const opacity0 = useTransform(smoothProgress, [0, 0.15, 0.2], [0, 1, 0]);
-    const opacity1 = useTransform(smoothProgress, [0.2, 0.35, 0.4], [0, 1, 0]);
-    const opacity2 = useTransform(smoothProgress, [0.4, 0.55, 0.6], [0, 1, 0]);
-    const opacity3 = useTransform(smoothProgress, [0.6, 0.75, 0.8], [0, 1, 0]);
-    const opacity4 = useTransform(smoothProgress, [0.8, 0.95, 1], [0, 1, 0]);
+    // Adjusted to finish earlier to match the animation completion
+    const opacity0 = useTransform(smoothProgress, [0, 0.1, 0.15], [0, 1, 0]);
+    const opacity1 = useTransform(smoothProgress, [0.15, 0.25, 0.3], [0, 1, 0]);
+    const opacity2 = useTransform(smoothProgress, [0.3, 0.45, 0.5], [0, 1, 0]);
+    const opacity3 = useTransform(smoothProgress, [0.5, 0.65, 0.7], [0, 1, 0]);
+    const opacity4 = useTransform(smoothProgress, [0.7, 0.85, 0.9], [0, 1, 0]);
 
     const headingOpacities = [opacity0, opacity1, opacity2, opacity3, opacity4];
 
@@ -81,7 +85,7 @@ export const About = ({ scrollContainerRef }) => {
         <div 
             id="about" 
             ref={containerRef}
-            className="relative h-[200vh] sm:h-[1200vh]"
+            className="relative h-[400vh] sm:h-[1200vh]"
         >
                 {/* LogoLoop at the top for Desktop only */}
                 {!isMobile && (
