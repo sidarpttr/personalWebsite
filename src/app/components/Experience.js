@@ -20,7 +20,7 @@ const Experience = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.6 }}
-                className="max-w-4xl mx-auto mb-20"
+                className="sticky top-0 pt-24 md:pt-32 pb-12 z-50 bg-gradient-to-b from-black via-black to-transparent pointer-events-none"
             >
 
                 <motion.h2 
@@ -31,7 +31,7 @@ const Experience = () => {
                         WebkitTextStroke: "1px white",
                         WebkitTextStrokeColor: strokeColor
                     }}
-                    className="my-12 md:my-20 text-center text-3xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-[-0.05em] uppercase"
+                    className="text-center text-3xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-[-0.05em] uppercase"
                 >
                     Experience
                 </motion.h2>

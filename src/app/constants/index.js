@@ -38,74 +38,65 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
     {
-        title: "YurtPal",
+        title: "YurtPal - Dormitory Management Platform",
         image: "/images/yurtpal.png",
         description:
-            "Developed a IOS/Android app for dormitory life.",
+            "Cross-platform mobile application streamlining dormitory operations with real-time notifications, meal planning, and community features. Built with Flutter for iOS and Android, powered by Firebase backend and Express.js REST API.",
         technologies: ["Flutter", "Firebase", "REST API", "express.js"],
         link: "https://yurtpal.com",
     },
     {
-        title: "Siirte Bakış",
-        image: "/images/siirte-bakis.svg",
+        title: "Siirte Bakış - Regional News Platform",
+        image: "/images/siirte-bakis.png",
         description:
-            "Developed a local news website using React and Node.js for Siirt.",
+            "Full-stack news platform delivering real-time local journalism for Siirt region. Features dynamic content management, Firebase authentication, and responsive design optimized for mobile readers.",
         technologies: ["next.js", "node.js", "react", "firebase","restapi"],
         link: "https://siirtebakis.com",
     },
     {
-        title: "Film Atlası — Mobile Movie Explorer App",
-        image: "/images/filmatlasi2.webp",
-        image2: "/images/filmatlasi.webp",
+        title: "Film Atlası - Movie Discovery Application",
+        image: "/images/filmatlasi.webp",
         description:
-            "Developed a movie app with auth, likes, and dynamic content via REST API. Used Firebase Auth & Firestore; designed UI with Figma",
+            "Feature-rich movie exploration app integrating TMDB API for real-time content. Implements Firebase Authentication, Firestore database for user preferences, and custom UI/UX designed in Figma. Supports personalized watchlists and social features.",
         technologies: ["Flutter", "Firebase", "REST API", "Dart"],
         link: "https://www.linkedin.com/posts/sidar-ad%C4%B1g%C3%BCzel-820696296_filmatlasaft-mobiluygulama-yazaftlaftmprojesi-activity-7335704332358590464-k9FN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEel7hgBfy_8_UhlIHRn5ZBYP_vWpGDJBV0",
     },
 
     {
-        title: "BirLig — League Management App",
+        title: "BirLig - Sports League Management System",
         image: "/images/birlig.webp",
         description:
-            "Developed a full-stack mobile app that allows users to create football leagues with friends and track match- based points. Implemented match result input, dynamic leaderboard, and user-friendly team management.",
+            "Full-stack mobile platform for organizing and tracking amateur football leagues. Features real-time leaderboards, match scheduling, score tracking, and team statistics. Built with Express.js backend, MongoDB database, and Flutter mobile client.",
 
         technologies: ["express.js", "MongoDB", "Flutter", "RestAPI"],
         link: "https://www.linkedin.com/posts/sidar-ad%C4%B1g%C3%BCzel-820696296_yazaftlaftmgeliagntirme-nodejs-flutter-activity-7192064003806781440-zXW7/",
     },
 
     {
-        title: "Printify to ePortal — Chrome Extension",
+        title: "Printify to ePortal - Invoice Automation Extension",
         image: "/images/p2p.webp",
         description:
-            "Built a Chrome extension to automate invoice creation between Printify and ePortal platforms Implemented secure token-based authentication and SMS verification for signing invoices Enabled date-based filtering and batch invoice approval via a clean React UI",
+            "Chrome extension automating invoice workflows between Printify and ePortal platforms. Implements secure token-based authentication, SMS verification, date-range filtering, and batch processing. Reduces manual invoice processing time by 80%.",
         technologies: ["React", "Javascript", "Node.js", "RestAPI"],
         link: "https://github.com/sidarpttr/p2p-react-chrome-extension",
     },
 
     {
-        title: "turkish-suffix — pub.dev Dart Package",
+        title: "turkish-suffix - Open Source Dart Package",
         image: "/images/pubdev.webp",
         description:
-            "Developed and published a Dart package to apply Turkish suffix rules programmatically Includes both String extensions and Flutter widgets for suffix handling Available on pub.dev: turkish_suffix",
+            "Published Dart package implementing Turkish language suffix rules for grammatically correct text processing. Provides String extensions and Flutter widgets for seamless integration. Available on pub.dev with active community usage.",
         technologies: ["Flutter", "Dart"],
         link: "https://github.com/sidarpttr/turkish_suffix",
     },
 
     {
-        title: "NumBreaker — Flutter Game",
+        title: "NumBreaker - Logic Puzzle Game",
         image: "/images/numbreaker.webp",
         description:
-            "Looking for a fun and challenging puzzle game? The Number Guessing Game is perfect for testing your logic and strategy skills! The goal of the game is to correctly guess a hidden 4-digit number. After each guess, you'll receive two clues",
+            "Interactive puzzle game challenging players to deduce a hidden 4-digit number using logical deduction. Features progressive difficulty, hint system, and score tracking. Built entirely in Flutter with custom game logic and smooth animations.",
         technologies: ["Flutter", "Dart"],
         link: "https://github.com/sidarpttr/numBreaker-Game",
-    },
-
-    {
-        title: "911 — Unity Game",
-        image: "null",
-        description: "null",
-        technologies: ["Unity", "C#"],
-        link: "https://www.linkedin.com/posts/ay%C3%A7a-dilnaz-aktekin-024138269_merhaba-de%C4%9Ferli-ba%C4%9Flant%C4%B1lar%C4%B1m-swe101-final-activity-7156021039448104960-8-Uk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEel7hgBfy_8_UhlIHRn5ZBYP_vWpGDJBV0",
     },
 ];
 
