@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback, useMemo } from "react";
 import { useScroll, motion, useTransform, useSpring } from "motion/react";
 import Lottie from "lottie-react";
 import phonesAnimation from "../../../public/animations/phones.json";
@@ -12,12 +12,17 @@ const HEADINGS = [
     "MOBILE EXPERT",
     "WEB ARCHITECT",
     "PROBLEM SOLVER",
-    "INNOVATION DRIVEN"
 ];
+
+// Easing function for smooth animation feel
+const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
 export const About = ({ scrollContainerRef }) => {
     const containerRef = useRef(null);
     const lottieRef = useRef(null);
+    const animationFrameRef = useRef(null);
+    const targetFrameRef = useRef(0);
+    const currentFrameRef = useRef(0);
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -29,43 +34,107 @@ export const About = ({ scrollContainerRef }) => {
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
+    // Set initial Lottie frame to show content immediately on load
+    useEffect(() => {
+        if (lottieRef.current) {
+            // Start at frame 1 to show initial animation state
+            lottieRef.current.goToAndStop(1, true);
+        }
+    }, []);
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end start"],
         container: scrollContainerRef,
     });
 
-    // Smooth the scroll progress for a "soft" feel
+    // Optimized spring physics - mobile needs more responsive, desktop more smooth
+    // Mobile: Higher stiffness for snappier response to touch
+    // Desktop: Softer for premium scrolling feel
     const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
+        stiffness: isMobile ? 100 : 80,      // Mobile more responsive
+        damping: isMobile ? 25 : 35,          // Mobile less damping for quicker response
+        restDelta: 0.0001
     });
+
+    // Frame interpolation for butter-smooth animation
+    // Mobile uses faster interpolation for more responsive feel
+    const animateToFrame = useCallback((targetFrame) => {
+        const animate = () => {
+            if (!lottieRef.current) return;
+
+            const current = currentFrameRef.current;
+            const target = targetFrame;
+            const distance = target - current;
+            
+            // Use interpolation for smooth frame transitions
+            // Mobile: faster interpolation (0.25) for more direct tracking
+            // Desktop: slower interpolation (0.15) for smoother feel
+            const interpolationFactor = isMobile ? 0.25 : 0.15;
+            const threshold = isMobile ? 0.05 : 0.1; // Mobile more sensitive
+            
+            if (Math.abs(distance) > threshold) {
+                // Ease towards target frame
+                const easedDistance = distance * interpolationFactor;
+                currentFrameRef.current = current + easedDistance;
+                lottieRef.current.goToAndStop(currentFrameRef.current, true);
+                animationFrameRef.current = requestAnimationFrame(animate);
+            } else {
+                // Snap to final frame
+                currentFrameRef.current = target;
+                lottieRef.current.goToAndStop(target, true);
+            }
+        };
+
+        // Cancel previous animation frame
+        if (animationFrameRef.current) {
+            cancelAnimationFrame(animationFrameRef.current);
+        }
+        
+        animate();
+    }, [isMobile]);
 
     useEffect(() => {
         const unsubscribe = smoothProgress.on("change", (latest) => {
             if (lottieRef.current) {
                 const totalFrames = lottieRef.current.getDuration(true);
-                // Map 0 -> 0.9 scroll progress to 0 -> totalFrames
-                // This ensures the animation is fully finished before the sticky section ends
-                const animationProgress = Math.min(latest / 0.9, 1);
-                const frame = Math.floor(animationProgress * totalFrames);
-                lottieRef.current.goToAndStop(frame, true);
+                // Apply easing to scroll progress for more natural feel
+                const easedProgress = easeOutCubic(Math.min(latest / 0.9, 1));
+                const targetFrame = easedProgress * totalFrames;
+                targetFrameRef.current = targetFrame;
+                animateToFrame(targetFrame);
             }
         });
 
-        return () => unsubscribe();
-    }, [smoothProgress]);
+        return () => {
+            unsubscribe();
+            if (animationFrameRef.current) {
+                cancelAnimationFrame(animationFrameRef.current);
+            }
+        };
+    }, [smoothProgress, animateToFrame]);
 
-    // Simple opacity animations for each heading (using smoothProgress)
-    // Adjusted to finish earlier to match the animation completion
-    const opacity0 = useTransform(smoothProgress, [0, 0.1, 0.15], [0, 1, 0]);
-    const opacity1 = useTransform(smoothProgress, [0.15, 0.25, 0.3], [0, 1, 0]);
-    const opacity2 = useTransform(smoothProgress, [0.3, 0.45, 0.5], [0, 1, 0]);
-    const opacity3 = useTransform(smoothProgress, [0.5, 0.65, 0.7], [0, 1, 0]);
-    const opacity4 = useTransform(smoothProgress, [0.7, 0.85, 0.9], [0, 1, 0]);
+    // Smoother heading transitions with slight overlap for premium feel
+    // First heading starts visible (1) so users see content immediately on load
+    const opacity0 = useTransform(smoothProgress, [0, 0.1, 0.2], [1, 1, 0]);  // Stays visible at start
+    const opacity1 = useTransform(smoothProgress, [0.18, 0.28, 0.38], [0, 1, 0]);
+    const opacity2 = useTransform(smoothProgress, [0.36, 0.50, 0.62], [0, 1, 0]);
+    const opacity3 = useTransform(smoothProgress, [0.60, 0.75, 0.9], [0, 1, 0]);  // Last heading
 
-    const headingOpacities = [opacity0, opacity1, opacity2, opacity3, opacity4];
+    const headingOpacities = [opacity0, opacity1, opacity2, opacity3];
+
+    // Dynamic scroll height calculation for optimal experience
+    // Mobile: 80vh per heading (very fast, responsive), Desktop: 200vh per heading (comfortable)
+    const scrollHeightPerHeading = isMobile ? 80 : 200;
+    const totalScrollHeight = HEADINGS.length * scrollHeightPerHeading;
+
+    // Lottie renderer settings for optimal performance
+    const lottieRendererSettings = useMemo(() => ({
+        preserveAspectRatio: 'xMidYMid slice',
+        clearCanvas: true,
+        progressiveLoad: true,
+        hideOnTransparent: true
+    }), []);
 
 
     const techLogos = [
@@ -85,7 +154,8 @@ export const About = ({ scrollContainerRef }) => {
         <div 
             id="about" 
             ref={containerRef}
-            className="relative h-[400vh] sm:h-[1200vh]"
+            style={{ height: `${totalScrollHeight}vh` }}
+            className="relative"
         >
                 {/* LogoLoop at the top for Desktop only */}
                 {!isMobile && (
@@ -110,18 +180,32 @@ export const About = ({ scrollContainerRef }) => {
             <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
                 {/* Background Lottie Animation */}
                 <div className="w-full absolute inset-0 flex items-center justify-center md:opacity-40 opacity-100">
-                    <div className="w-full md:w-full h-auto md:h-auto scale-[2.4] md:scale-100 relative top-[-5%] md:top-0">
+                    <div 
+                        className="w-full md:w-full h-auto md:h-auto scale-[2.4] md:scale-100 relative top-[-5%] md:top-0"
+                        style={{
+                            transform: 'translateZ(0)', // GPU acceleration
+                            willChange: 'transform',     // Performance hint
+                            backfaceVisibility: 'hidden' // Prevent flickering
+                        }}
+                    >
                         <Lottie
                             lottieRef={lottieRef}
                             animationData={isMobile ? mobilePhonesAnimation : phonesAnimation}
                             loop={false}
                             autoplay={false}
+                            renderer="svg"  // SVG renderer for best performance
+                            rendererSettings={lottieRendererSettings}
                             className="w-full h-full object-cover"
+                            style={{
+                                transform: 'translateZ(0)',
+                                willChange: 'transform'
+                            }}
                         />
                         {/* Stronger gradient fade overlay for mobile */}
                         <div className="absolute inset-0 md:hidden pointer-events-none bg-gradient-to-b from-black from-0% via-transparent via-30% via-70% to-black to-100%"></div>
                     </div>
                 </div>
+
 
                 {/* Animated Headings */}
                 <div className="relative z-10 flex items-center justify-center h-full">
@@ -130,7 +214,9 @@ export const About = ({ scrollContainerRef }) => {
                             key={index}
                             style={{ 
                                 opacity: headingOpacities[index],
-                                fontFamily: 'var(--font-syne)'
+                                fontFamily: 'var(--font-syne)',
+                                transform: 'translateZ(0)', // GPU acceleration
+                                willChange: 'opacity'        // Performance hint
                             }}
                             className="absolute text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-syne font-bold text-white text-center px-4 md:px-8 leading-[0.85] tracking-[-0.05em] uppercase"
                         >
@@ -138,6 +224,7 @@ export const About = ({ scrollContainerRef }) => {
                         </motion.h2>
                     ))}
                 </div>
+
 
                 {/* LogoLoop at the bottom for Mobile only - inside sticky to be visible during animation */}
                 {isMobile && (

@@ -65,6 +65,16 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <head>
+                {/* Scroll to top on page load */}
+                <script dangerouslySetInnerHTML={{
+                    __html: `
+                        if (typeof window !== 'undefined') {
+                            window.scrollTo(0, 0);
+                            history.scrollRestoration = 'manual';
+                        }
+                    `
+                }} />
+                
                 {/* Google Fonts için performans iyileştirmesi */}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link

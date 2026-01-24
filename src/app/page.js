@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import Experience from "./components/Experience";
@@ -9,6 +9,18 @@ import GlassSurface from "@/component/GlassSurface";
 
 export default function Home() {
     const scrollContainerRef = useRef(null);
+    
+    // Scroll to top on mount
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollTop = 0;
+        }
+        // Disable scroll restoration
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+    }, []);
     
     return (
         <div ref={scrollContainerRef} className="overflow-x-hidden text-neutral-300 antialiased selection:bg-gray-300 selection:text-black h-screen overflow-y-scroll snap-y snap-mandatory">

@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { PROJECTS } from "../constants";
 import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
-import CustomButton from "./atoms/button";
 import LinkedInEmbedModal from "./atoms/LinkedIn";
 
 const Projects = () => {
@@ -23,7 +22,7 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.6 }}
-                className="max-w-6xl mx-auto mb-20"
+                className="sticky top-0 pt-24 md:pt-32 pb-12 z-50 bg-gradient-to-b from-black via-black to-transparent pointer-events-none"
             >
                 <motion.h2 
                     ref={headingRef}
@@ -33,65 +32,72 @@ const Projects = () => {
                         WebkitTextStroke: "1px white",
                         WebkitTextStrokeColor: strokeColor
                     }}
-                    className="my-12 md:my-20 text-center text-3xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-[-0.05em] uppercase"
+                    className="text-center text-3xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-[-0.05em] uppercase"
                 >
                     Projects
                 </motion.h2>
             </motion.div>
 
-            {/* Projects Grid */}
-            <div className="max-w-6xl mx-auto space-y-16">
-                {PROJECTS.map((project, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, margin: "-100px" }}
-                        transition={{
-                            duration: 0.5,
-                            delay: index * 0.1,
-                            ease: [0.22, 1, 0.36, 1]
-                        }}
-                    >
+            {/* Projects Grid - Sticky Stack */}
+            <div className="max-w-6xl mx-auto">
+                {PROJECTS.map((project, index) => {
+                    const stickyTop = 200 + (index * 48); // 240px base + 48px per card
+                    const zIndex = index + 1; // Later cards on top
+                    
+                    return (
+                        <div 
+                            key={index}
+                            className="sticky"
+                            style={{ 
+                                top: `${stickyTop}px`,
+                                zIndex
+                            }}
+                        >
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, margin: "-100px" }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: index * 0.1,
+                                    ease: [0.22, 1, 0.36, 1]
+                                }}
+                            >
                         <a
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block"
                         >
-                            <div className="group relative bg-neutral-900/30 backdrop-blur-sm rounded-3xl overflow-hidden border border-neutral-800/50 hover:border-neutral-700/50 hover:bg-neutral-900/40 transition-all duration-500 hover:shadow-2xl hover:shadow-neutral-900/20 cursor-pointer">
+                            <div className="group relative bg-neutral-900/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-neutral-800/50 hover:border-neutral-700/50 hover:bg-neutral-900/95 transition-all duration-500 hover:shadow-2xl hover:shadow-neutral-900/20 cursor-pointer h-[500px] flex flex-col">
+                                {/* Card Header - Always Visible */}
+                                <div className="flex items-center gap-3 px-6 py-4 border-b border-neutral-800/50 bg-neutral-900/50">
+                                    {/* Folder Icon */}
+                                    <svg className="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                                    </svg>
+                                    {/* Project Title */}
+                                    <h4 className="text-sm font-semibold text-white truncate">
+                                        {project.title}
+                                    </h4>
+                                </div>
+
+                                {/* Card Content */}
+                                <div className="flex-1 overflow-hidden mt-16">
                                 {/* Subtle gradient overlay on hover */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-neutral-800/0 via-neutral-800/0 to-neutral-700/0 group-hover:from-neutral-800/5 group-hover:via-neutral-800/5 group-hover:to-neutral-700/10 transition-all duration-500 pointer-events-none"></div>
 
                                 <div className="relative z-10 flex flex-col lg:flex-row gap-8 p-8 lg:p-10">
                                     {/* Project Image */}
                                     <div className="lg:w-2/5 flex flex-col gap-4">
-                                        {project.image === "null" ? (
-                                            <LinkedInEmbedModal />
-                                        ) : (
-                                            <>
-                                                {project.title === "Film Atlası — Mobile Movie Explorer App" && (
-                                                    <div className="relative overflow-hidden rounded-2xl">
-                                                        <Image
-                                                            src={project.image2}
-                                                            alt={project.title}
-                                                            className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                                                            width={400}
-                                                            height={400}
-                                                        />
-                                                    </div>
-                                                )}
-                                                <div className="relative overflow-hidden rounded-2xl">
+                                                <div className="relative aspect-video overflow-hidden rounded-2xl">
                                                     <Image
                                                         src={project.image}
                                                         alt={project.title}
-                                                        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                                                        width={400}
-                                                        height={400}
+                                                        fill
+                                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                                                     />
                                                 </div>
-                                            </>
-                                        )}
                                     </div>
 
                                     {/* Project Details */}
@@ -102,13 +108,13 @@ const Projects = () => {
                                                 {project.title}
                                             </h3>
 
-                                            {/* Description */}
-                                            <p className="text-neutral-300 leading-relaxed mb-6 text-base lg:text-lg">
+                                            {/* Description - Hidden on mobile */}
+                                            <p className="hidden md:block text-neutral-300 leading-relaxed mb-6 text-base lg:text-lg">
                                                 {project.description}
                                             </p>
 
-                                            {/* Technologies */}
-                                            <div className="flex flex-wrap gap-2 mb-8">
+                                            {/* Technologies - Hidden on mobile */}
+                                            <div className="hidden md:flex flex-wrap gap-2 mb-8">
                                                 {project.technologies.map((tech, techIndex) => (
                                                     <span
                                                         key={techIndex}
@@ -120,8 +126,8 @@ const Projects = () => {
                                             </div>
                                         </div>
 
-                                        {/* Button */}
-                                        <div className="mt-auto">
+                                        {/* Button - Hidden on mobile */}
+                                        <div className="hidden md:block mt-auto">
                                             <div className="inline-flex items-center gap-2 text-white font-medium">
                                                 <span>Visit Project</span>
                                                 <svg
@@ -142,9 +148,12 @@ const Projects = () => {
                                     </div>
                                 </div>
                             </div>
+                            </div>
                         </a>
-                    </motion.div>
-                ))}
+                            </motion.div>
+                        </div>
+                    );
+                })}
             </div>
         </section>
     );
