@@ -25,6 +25,7 @@ export const About = ({ scrollContainerRef }) => {
     const targetFrameRef = useRef(0);
     const currentFrameRef = useRef(0);
     const [isMobile, setIsMobile] = useState(false);
+    const [lottieLoaded, setLottieLoaded] = useState(false);
 
     useEffect(() => {
         const checkMobile = () => {
@@ -203,12 +204,19 @@ export const About = ({ scrollContainerRef }) => {
                             autoplay={false}
                             renderer="svg"  // SVG renderer for best performance
                             rendererSettings={lottieRendererSettings}
-                            className="w-full h-full object-cover"
+                            onDOMLoaded={() => setLottieLoaded(true)}
+                            className={`w-full h-full object-cover transition-opacity duration-500 ${lottieLoaded ? 'opacity-100' : 'opacity-0'}`}
                             style={{
                                 transform: 'translateZ(0)',
                                 willChange: 'transform'
                             }}
                         />
+                        {/* Loading placeholder */}
+                        {!lottieLoaded && (
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-16 h-16 border-4 border-neutral-800 border-t-white rounded-full animate-spin"></div>
+                            </div>
+                        )}
                         {/* Stronger gradient fade overlay for mobile */}
                         <div className="absolute inset-0 md:hidden pointer-events-none bg-gradient-to-b from-black from-0% via-transparent via-30% via-70% to-black to-100%"></div>
                     </div>

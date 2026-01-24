@@ -60,7 +60,7 @@ export const Hero = () => {
         <div className="min-h-screen w-full flex flex-col lg:flex-row items-center justify-center relative overflow-hidden px-4 sm:px-0 py-0 lg:py-0">
             {/* Background Heading */}
             <motion.h1
-                variants={fadeIn(0.2)}
+                variants={fadeIn(0)}
                 initial="hidden"
                 animate="visible"
                 className="absolute top-[13%] sm:top-[9%] left-0 right-0 text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[8rem] 2xl:text-[10rem] font-syne font-extrabold tracking-[-0.05em] leading-[0.85] uppercase text-center z-0 whitespace-nowrap px-4 opacity-10 sm:opacity-100 bg-clip-text text-transparent bg-gradient-to-b from-[#A5D7E8] via-[#E0F2F7] to-white"
@@ -73,7 +73,7 @@ export const Hero = () => {
             <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center justify-between relative z-10 gap-12 lg:gap-0">
                 {/* Left - Tagline */}
                 <motion.div
-                    variants={fadeIn(0.4)}
+                    variants={fadeIn(0.05)}
                     initial="hidden"
                     animate="visible"
                     className="max-w-xs space-y-3 text-center lg:text-left order-2 lg:order-1"
@@ -95,7 +95,7 @@ export const Hero = () => {
                 {/* Center - Large Profile Image */}
                 <motion.div
                     ref={imageRef}
-                    variants={fadeIn(0.6)}
+                    variants={fadeIn(0.1)}
                     initial="hidden"
                     animate="visible"
                     style={{ x, y }}
@@ -112,7 +112,7 @@ export const Hero = () => {
 
                 {/* Right - VIEW CV Button (Desktop) */}
                 <motion.div
-                    variants={fadeIn(0.8)}
+                    variants={fadeIn(0.15)}
                     initial="hidden"
                     animate="visible"
                     className="hidden lg:block order-3"
@@ -131,7 +131,7 @@ export const Hero = () => {
 
                 {/* Mobile VIEW CV (Below Tagline) */}
                 <motion.div
-                    variants={fadeIn(0.8)}
+                    variants={fadeIn(0.2)}
                     initial="hidden"
                     animate="visible"
                     className="lg:hidden order-3"
