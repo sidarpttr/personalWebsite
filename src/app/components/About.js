@@ -5,7 +5,8 @@ import Lottie from "lottie-react";
 import phonesAnimation from "../../../public/animations/phones.json";
 import mobilePhonesAnimation from "../../../public/animations/mobile_phones.json";
 import LogoLoop from "@/component/LogoLoop";
-import { SiNextdotjs, SiReact, SiTailwindcss, SiTypescript, SiDocker, SiNodedotjs, SiFlutter, SiPostman, SiLinux } from "react-icons/si";
+import { SiNextdotjs, SiReact, SiTailwindcss, SiTypescript, SiDocker, SiNodedotjs, SiFlutter, SiPostman, SiLinux, SiMongodb, SiMysql, SiRedis, SiFirebase, SiGit, SiGithub } from "react-icons/si";
+import { TbApi } from "react-icons/tb";
 
 const HEADINGS = [
     "FULL STACK DEVELOPER",
@@ -142,11 +143,18 @@ export const About = ({ scrollContainerRef }) => {
         { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
         { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
         { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
-        { node: <SiDocker />, title: "Docker", href: "https://www.docker.com" },
-        { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org" },
         { node: <SiFlutter />, title: "Flutter", href: "https://flutter.dev" },
-        { node: <SiPostman />, title: "Postman", href: "https://www.postman.com" },
+        { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org" },
+        { node: <SiMongodb />, title: "MongoDB", href: "https://www.mongodb.com" },
+        { node: <SiMysql />, title: "MySQL", href: "https://www.mysql.com" },
+        { node: <SiRedis />, title: "Redis", href: "https://redis.io" },
+        { node: <SiFirebase />, title: "Firebase", href: "https://firebase.google.com" },
+        { node: <SiDocker />, title: "Docker", href: "https://www.docker.com" },
         { node: <SiLinux />, title: "Linux", href: "https://www.kernel.org" },
+        { node: <SiGit />, title: "Git", href: "https://git-scm.com" },
+        { node: <SiGithub />, title: "GitHub", href: "https://github.com" },
+        { node: <TbApi />, title: "REST API", href: "https://restfulapi.net" },
+        { node: <SiPostman />, title: "Postman", href: "https://www.postman.com" },
     ];
 
 
@@ -181,7 +189,7 @@ export const About = ({ scrollContainerRef }) => {
                 {/* Background Lottie Animation */}
                 <div className="w-full absolute inset-0 flex items-center justify-center md:opacity-40 opacity-100">
                     <div 
-                        className="w-full md:w-full h-auto md:h-auto scale-[2.4] md:scale-100 relative top-[-5%] md:top-0"
+                        className="w-full md:w-full h-auto md:h-auto scale-[2.5] md:scale-100 relative top-[-5%] md:top-0"
                         style={{
                             transform: 'translateZ(0)', // GPU acceleration
                             willChange: 'transform',     // Performance hint
